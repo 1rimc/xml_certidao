@@ -6,7 +6,7 @@ Este repositório contém exemplos de certidões em formato XML, juntamente com 
 
 ## Estrutura do Repositório:
 
-- `exemplos/`: Pasta contendo exemplos de certidões em formato XML para diversos tipos de certificados (nascimento, casamento, óbito, etc.).
+- `exemplos/`: Pasta contendo exemplos de certidões em formato XML para diversos tipos de certidões (inteiro teor, situação jurídica do imóvel, etc.).
 - `esquemas/`: Contém os esquemas XML (XSD) usados para validar a estrutura dos XML de certidões.
 - `validacao/`: Conjunto de scripts e ferramentas para validar os XML de certidões em relação aos esquemas definidos.
 - `documentacao/`: Documentação detalhada sobre o formato XML utilizado, padrões e diretrizes para a criação de certidões em XML.
