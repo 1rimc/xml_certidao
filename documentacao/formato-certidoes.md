@@ -6,9 +6,12 @@ Este documento fornece informações sobre o formato das certidões em XML utili
 
 As certidões em XML seguem uma estrutura básica definida pelos esquemas (XSD) presentes na pasta `esquemas/`. A estrutura geral inclui os seguintes elementos:
 
-- `<CERTIDAO>`: Elemento raiz que contém as informações principais da certidão.
-- `<IMOVEIS>`: Elemento que inclui informações sobre os imoveis.
-- `<ATOS>`: Elemento que inclui informações sobre os atos praticados.
+- `<certidao>`: Elemento raiz que contém as informações principais da certidão.
+- `<registro>`: Elemento que contém os dados do registro objeto da certidão.
+- `<registrosAnteriores>`: Elemento para a lista de registros anteriores.
+- `<imoveis>`: Elemento que inclui informações sobre os imoveis.
+- `<proprietariosOriginais>`: Elemento que inclui informações sobre os proprietários originais do imóvel.
+- `<atos>`: Elemento que inclui informações sobre os atos praticados.
 
 
 ## Exemplo de Certidão em XML
@@ -16,71 +19,88 @@ As certidões em XML seguem uma estrutura básica definida pelos esquemas (XSD) 
 Aqui está um exemplo simplificado de uma certidão em XML:
 
 ```xml
-<CERTIDAO>
-  <NUMERO_PEDIDO>10000</NUMERO_PEDIDO>
-  <NUMERO_REGISTRO>50000</NUMERO_REGISTRO>
-  <LIVRO>2</LIVRO>
-  <CNM>2</CNM>
-  <DATA_REGISTRO>1990-05-04</DATA_REGISTRO>
-  <IMOVEIS>
-    <IMOVEL>
-      <URBANO>
-        <LOTE>2</LOTE>
-        <QUADRA>5</QUADRA>
-        <IPTU/>
-        <IM/>
-        <AREA_PRIVATIVA_PRINCIPAL/>
-        <AREA_PRIVATIVA_ACESSORIA/>
-        <AREA_PRIVATIVA_TOTAL/>
-        <AREA_USO_COMUM/>
-        <AREA_TOTAL/>
-        <AREA_USO_COMUM_TERRENO/>
-        <AREA_USO_EXCLUSIVO_TERRENO/>
-        <AREA_TOTAL_TERRENO/>
-        <FRACAO_IDEAL/>
-        <AREA_IMOVEL>50.0</AREA_IMOVEL>
-      </URBANO>
-      <RURAL>
-        <DENOMINACAO></DENOMINACAO>
-        <AREA></AREA>
-        <CIR></CIR>
-        <CCIR></CCIR>
-        <NIRF></NIRF>
-        <CAR></CAR>
-      </RURAL>
-    </IMOVEL>
-  </IMOVEIS>
-  <ATOS>
-    <ATO>
-      <NUMERO_ATO>1</NUMERO_ATO>
-      <DATA_ATO>2023-06-01</DATA_ATO>
-      <DENOMINACAO>Averbacao</DENOMINACAO>
-      <PARTES/>
-    </ATO>
-    <ATO>
-      <NUMERO_ATO>2</NUMERO_ATO>
-      <DATA_ATO>2023-07-01</DATA_ATO>
-      <DENOMINACAO>Compra e Venda</DENOMINACAO>
-      <PARTES>
-        <PARTE>
-          <QUALIFICACAO>transmitente</QUALIFICACAO>
-          <PERCENTUAL>100.0</PERCENTUAL>
-          <PESSOA_FISICA>
-            <NOME>NOME PESSOA</NOME>
-            <CPF>00000000000</CPF>
-          </PESSOA_FISICA>
-          <PESSOA_JURIDICA/>
-        </PARTE>
-        <PARTE>
-          <QUALIFICACAO>adquirente</QUALIFICACAO>
-          <PERCENTUAL>100.0</PERCENTUAL>
-          <PESSOA_FISICA>
-            <NOME>NOME PESSOA</NOME>
-            <CPF>00000000000</CPF>
-          </PESSOA_FISICA>
-          <PESSOA_JURIDICA/>
-        </PARTE>
-      </PARTES>
-    </ATO>  
-  </ATOS>
-</CERTIDAO>
+<certidao>
+  <numeroPedido>1</numeroPedido>
+  <dataEmissao>2023-09-29</dataEmissao>
+  <registro>
+    <numero>10</numero>
+    <livro>2</livro>
+    <cnm/>
+    <dataAbertura>2022-04-20</dataAbertura>
+  </registro>
+  <registrosAnteriores>
+    <registroAnterior>
+      <numero>6</numero>
+      <livro>2</livro>
+      <cnm/>
+      <dataAbertura>2022-04-19</dataAbertura>
+    </registroAnterior>
+    <registroAnterior>
+      <numero>10</numero>
+      <livro>3</livro>
+      <cnm/>
+      <dataAbertura>2023-04-19</dataAbertura>
+    </registroAnterior>
+  </registrosAnteriores>
+  <imoveis>
+    <imovel>
+      <urbano>
+        <lote>2</lote>
+        <quadra>5</quadra>
+        <iptu/>
+        <im/>
+        <area_privativa_principal/>
+        <area_privativa_acessoria/>
+        <area_privativa_total/>
+        <area_uso_comum/>
+        <area_total/>
+        <area_uso_comum_terreno/>
+        <area_uso_exclusivo_terreno/>
+        <area_total_terreno/>
+        <fracao_ideal/>
+        <area_imovel>50.0</area_imovel>
+      </urbano>
+      <rural>
+        <denominacao></denominacao>
+        <area></area>
+        <cir></cir>
+        <ccir></ccir>
+        <nirf></nirf>
+        <car></car>
+      </rural>
+    </imovel>
+  </imoveis>
+  <atos>
+    <ato>
+      <numero_ato>1</numero_ato>
+      <data_ato>2023-06-01</data_ato>
+      <denominacao>averbacao</denominacao>
+      <partes/>
+    </ato>
+    <ato>
+      <numero_ato>2</numero_ato>
+      <data_ato>2023-07-01</data_ato>
+      <denominacao>compra e venda</denominacao>
+      <partes>
+        <parte>
+          <qualificacao>transmitente</qualificacao>
+          <percentual>100.0</percentual>
+          <pessoa_fisica>
+            <nome>nome pessoa</nome>
+            <cpf>00000000000</cpf>
+          </pessoa_fisica>
+          <pessoa_juridica/>
+        </parte>
+        <parte>
+          <qualificacao>adquirente</qualificacao>
+          <percentual>100.0</percentual>
+          <pessoa_fisica>
+            <nome>nome pessoa</nome>
+            <cpf>00000000000</cpf>
+          </pessoa_fisica>
+          <pessoa_juridica/>
+        </parte>
+      </partes>
+    </ato>  
+  </atos>
+</certidao>
